@@ -1,4 +1,4 @@
 export interface MarkDoneReq {
-	id: number;
+	id: string;
 	isDone: boolean;
 }

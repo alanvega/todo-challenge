@@ -29,7 +29,7 @@ export const NewTodo = () => {
 
 	return (
 		<form className="flex space-x-2" onSubmit={handleNewTodo}>
-			<input type="checkbox" defaultChecked={addReq.isDone} onChange={handleChangeActive} />
+			<input type="checkbox" checked={addReq.isDone} onChange={handleChangeActive} />
 			<input type="text" placeholder="Create a new todo" value={addReq.name} onChange={handleChangeName} />
 		</form>
 	);

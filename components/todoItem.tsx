@@ -5,7 +5,7 @@ import {MarkDoneReq} from '@/interfaces/markDoneReq';
 import {useFetchAndReloadData} from '@/components/useFetchAndReloadData';
 
 interface TodoItemInterface {
-	id: number;
+	id: string;
 	isDone: boolean;
 	name: string;
 }
@@ -34,9 +34,11 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 	};
 
 	return (
-		<li className="flex space-x-3">
+		<li className="flex items-center space-x-3">
 			<input type="checkbox" defaultChecked={isChecked} onChange={() => handleToggleCheckbox()}/>
-			<span className={isChecked ? 'line-through' : ''}>name: {name}</span>
+			<div>
+				<span className={isChecked ? 'line-through' : ''}>{name}</span>
+			</div>
 			<a className="cursor-pointer" onClick={() => handleDeleteTodo()}>
 				<TrashIcon/>
 			</a>
