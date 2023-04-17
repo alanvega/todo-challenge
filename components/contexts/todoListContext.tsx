@@ -3,8 +3,8 @@ import useSWR from 'swr';
 import {fetcher} from '@/utils/swr-fetcher';
 import {Todo} from '@/interfaces/todo';
 import {TODO_LIST_PATH} from '@/utils/url-paths';
-import {TodoListType} from '@/interfaces/todoListType';
-import {ResultContextType} from '@/interfaces/resultContextType';
+import {TodoListType} from '@/types/todoListType';
+import {ResultContextType} from '@/types/resultContextType';
 
 const TodoListContext = createContext<ResultContextType>({
 	todoList: [],

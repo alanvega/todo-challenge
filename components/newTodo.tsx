@@ -28,7 +28,7 @@ export const NewTodo = () => {
 	};
 
 	return (
-		<form className="flex items-center p-2 pl-4 border border-gray-200 rounded dark:border-gray-700 dark:bg-gray-800"
+		<form className="flex items-center p-2 pl-4 w-96 border border-gray-200 rounded dark:border-gray-700 dark:bg-gray-800"
 		      onSubmit={handleNewTodo}>
 			<input type="checkbox"
 			       className="w-7 h-7 bg-white border border-gray-600 appearance-none rounded-full checked:bg-gray-700 checked:dark:bg-fuchsia-950 dark:bg-gray-700 dark:border-gray-600"

@@ -1,8 +1,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {Todo} from '@/interfaces/todo';
 
-// import todoList from '../_todo-list.json';
-import {TodoListType} from '@/interfaces/todoListType';
+import {TodoListType} from '@/types/todoListType';
 import mongodbCollection from '@/lib/mongo';
 import {TODO_LIST_PATH} from '@/utils/url-paths';
 
