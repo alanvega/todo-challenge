@@ -1,8 +1,8 @@
 import {TodoContainer} from '@/components/todoContainer';
 import {useState} from 'react';
 import {ThemeType} from '@/types/ThemeType';
-import {MoonIcon} from '@/icons/MoonIcon';
 import {SunIcon} from '@/icons/sunIcon';
+import {MoonIcon} from '@/icons/moonIcon';
 
 export default function Home() {
 	const [theme, setTheme] = useState<ThemeType>('light');
