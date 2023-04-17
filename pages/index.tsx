@@ -11,7 +11,7 @@ export default function Home() {
 
 	return (
 		<main className={theme}>
-			<div className="absolute right-0 p-8 text-gray-400 dark:text-gray-200">
+			<div className="absolute right-0 p-2 sm:p-8 text-gray-400 dark:text-gray-200">
 				<a className="cursor-pointer" onClick={() => setTheme(isThemeLight? 'dark' : 'light')}>
 					{ isThemeLight ?
 						<MoonIcon/>
@@ -20,10 +20,10 @@ export default function Home() {
 					}
 				</a>
 			</div>
-			<div className="flex min-h-screen flex-col items-center justify-between p-24 bg-white dark:bg-slate-800">
-				<div className="flex min-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-					<div className="w-full max-w-md space-y-8">
-						<h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+			<div className="flex min-h-screen w-full items-center justify-center bg-white dark:bg-slate-800">
+				<div className="flex min-h-full w-full max-w-lg p-3 sm:p-8 py-12">
+					<div className="w-full space-y-8">
+						<h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
 							T O D O
 						</h2>
 						<TodoContainer/>

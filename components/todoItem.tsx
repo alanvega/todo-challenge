@@ -34,7 +34,7 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 	};
 
 	return (
-		<li className="flex p-2 pl-3 items-center justify-between w-96 border border-gray-200 rounded dark:border-gray-700">
+		<li className="flex p-2 pl-3 items-center justify-between border border-gray-200 rounded dark:border-gray-700">
 			<input type="checkbox"
 			       className="w-7 h-7 p-3 bg-white border border-gray-600 appearance-none rounded-full checked:bg-gray-700 checked:dark:bg-fuchsia-950 dark:bg-gray-700 dark:border-gray-600"
 			       defaultChecked={isChecked}

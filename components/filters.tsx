@@ -34,16 +34,17 @@ export const Filters = () => {
 		</a>;
 
 	return (
-		<div className="flex p-3 w-96 items-center justify-between max-w-sm border border-gray-200 rounded dark:border-gray-700 text-xs text-gray-600 dark:text-gray-500">
-			<div>
-				<span>{countRemaining()} remaining</span>
+		<div className="flex p-2 sm:p-3 items-center justify-between border border-gray-200 rounded dark:border-gray-700 text-xs text-gray-600 dark:text-gray-500">
+			<div className="flex flex-col sm:flex-row items-center w-1/4">
+				<span className="sm:pr-1">{countRemaining()}</span>
+				<span>remaining</span>
 			</div>
-			<div className="flex space-x-1">
+			<div className="flex w-full justify-center space-x-1">
 				{typeFilter('ALL')}
 				{typeFilter('ACTIVE')}
 				{typeFilter('COMPLETED')}
 			</div>
-			<div>
+			<div className="text-center sm:w-2/5">
 				<a className="cursor-pointer" onClick={() => clearCompleted()}>Clear Completed</a>
 			</div>
 		</div>
