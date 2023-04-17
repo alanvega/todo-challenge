@@ -1,4 +1,4 @@
-import {MongoClient} from 'mongodb';
+import {Collection, MongoClient} from 'mongodb';
 
 // const uri: string = "mongodb://localhost:27017/todos"; //only for local
 
@@ -7,12 +7,13 @@ const user = 'user';
 const password = 'SYe2OKhUZS1qOBcd';
 const uri: string = `mongodb+srv://${user}:${password}@cluster0.mube2gl.mongodb.net/?retryWrites=true&w=majority`;
 
-const client = new MongoClient(uri);
+let collection: Collection;
 
-const mongodbCollection = async () => {
+export const mongodbCollection = async () => {
+	if (collection) return collection;
+	const client = new MongoClient(uri);
 	await client.connect();
 	const db = client.db('todos');
-	return db.collection('todo_list');
+	collection = db.collection('todo_list');
+	return collection;
 };
-
-export default mongodbCollection;

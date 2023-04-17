@@ -1,7 +1,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {TODO_ADD_PATH} from '@/utils/url-paths';
 import {AddReq} from '@/interfaces/addReq';
-import mongodbCollection from '@/lib/mongo';
+import {mongodbCollection} from '@/lib/mongo';
 
 export default async function handler(
 	req: NextApiRequest,

@@ -2,8 +2,8 @@ import type {NextApiRequest, NextApiResponse} from 'next'
 import {Todo} from '@/interfaces/todo';
 
 import {TodoListType} from '@/types/todoListType';
-import mongodbCollection from '@/lib/mongo';
 import {TODO_LIST_PATH} from '@/utils/url-paths';
+import {mongodbCollection} from '@/lib/mongo';
 
 interface ListReq extends NextApiRequest {
 	query: { type: TodoListType }

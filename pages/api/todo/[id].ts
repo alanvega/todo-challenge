@@ -1,7 +1,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {TODO_DELETE_PATH} from '@/utils/url-paths';
-import mongodbCollection from '@/lib/mongo';
 import {ObjectId} from 'bson';
+import {mongodbCollection} from '@/lib/mongo';
 
 export default async function handler(
 	req: NextApiRequest,
