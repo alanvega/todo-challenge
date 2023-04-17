@@ -1,7 +1,7 @@
 import {TODO_ADD_PATH} from '@/utils/url-paths';
 import {ChangeEvent, FormEvent, useState} from 'react';
 import {AddReq} from '@/interfaces/addReq';
-import {useFetchAndReloadData} from '@/components/useFetchAndReloadData';
+import {useFetchAndReloadData} from '@/components/customHooks/useFetchAndReloadData';
 
 export const NewTodo = () => {
 	const defaultAddReq: AddReq = {name: '', isDone: false};
@@ -28,9 +28,17 @@ export const NewTodo = () => {
 	};
 
 	return (
-		<form className="flex space-x-2" onSubmit={handleNewTodo}>
-			<input type="checkbox" checked={addReq.isDone} onChange={handleChangeActive} />
-			<input type="text" placeholder="Create a new todo" value={addReq.name} onChange={handleChangeName} />
+		<form className="flex items-center p-2 pl-4 border border-gray-200 rounded dark:border-gray-700 dark:bg-gray-800"
+		      onSubmit={handleNewTodo}>
+			<input type="checkbox"
+			       className="w-7 h-7 bg-white border border-gray-600 appearance-none rounded-full checked:bg-gray-700 checked:dark:bg-fuchsia-950 dark:bg-gray-700 dark:border-gray-600"
+			       checked={addReq.isDone}
+			       onChange={handleChangeActive}/>
+			<input type="text"
+			       className="block flex-1 border-0 py-1.5 pl-4 text-gray-700 placeholder:text-gray-500 dark:bg-transparent dark:text-gray-300"
+			       placeholder="Create a new todo"
+			       value={addReq.name}
+			       onChange={handleChangeName}/>
 		</form>
 	);
 };

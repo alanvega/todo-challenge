@@ -4,6 +4,7 @@ import {Todo} from '@/interfaces/todo';
 // import todoList from '../_todo-list.json';
 import {TodoListType} from '@/interfaces/todoListType';
 import mongodbCollection from '@/lib/mongo';
+import {TODO_LIST_PATH} from '@/utils/url-paths';
 
 interface ListReq extends NextApiRequest {
 	query: { type: TodoListType }
@@ -14,7 +15,7 @@ export default async function handler(
 	res: NextApiResponse<Todo[]>
 ) {
 	const queryType = req.query.type;
-	console.log('todo list request received with query type: ', queryType);
+	console.log(`${TODO_LIST_PATH} request received, with query type: `, queryType);
 
 	const dbCollection = await mongodbCollection();
 	const todoWithId = await dbCollection.find().toArray();
@@ -30,6 +31,8 @@ export default async function handler(
 			todoList.filter(({isDone}) => (queryType === 'COMPLETED') ? isDone : !isDone)
 		);
 	}
+
+	console.log('todo list request completed');
 
 	return res.status(200).json(todoList);
 }

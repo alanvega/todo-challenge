@@ -13,7 +13,6 @@ export default async function handler(
 		const markDoneReq: MarkDoneReq = JSON.parse(req.body);
 		console.log(`${TODO_MARK_DONE_PATH} request received with body: ${markDoneReq}`);
 
-		// update the given id
 		const dbCollection = await mongodbCollection();
 		await dbCollection.findOneAndUpdate(
 			{_id: new ObjectId(markDoneReq.id)}, {$set: {isDone: markDoneReq.isDone}}

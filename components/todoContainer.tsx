@@ -9,7 +9,7 @@ export const TodoContainer = () =>
 			<div className="space-y-8">
 				<NewTodo/>
 			</div>
-			<div className="space-y-8">
+			<div className="space-y-0.5">
 				<TodoList/>
 				<Filters/>
 			</div>

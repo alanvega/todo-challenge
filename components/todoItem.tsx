@@ -2,7 +2,7 @@ import {TrashIcon} from '@/icons/trash';
 import {TODO_DELETE_PATH, TODO_MARK_DONE_PATH} from '@/utils/url-paths';
 import {useState} from 'react';
 import {MarkDoneReq} from '@/interfaces/markDoneReq';
-import {useFetchAndReloadData} from '@/components/useFetchAndReloadData';
+import {useFetchAndReloadData} from '@/components/customHooks/useFetchAndReloadData';
 
 interface TodoItemInterface {
 	id: string;
@@ -34,12 +34,16 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 	};
 
 	return (
-		<li className="flex items-center space-x-3">
-			<input type="checkbox" defaultChecked={isChecked} onChange={() => handleToggleCheckbox()}/>
-			<div>
-				<span className={isChecked ? 'line-through' : ''}>{name}</span>
+		<li className="flex p-2 pl-3 items-center justify-between w-96 border border-gray-200 rounded dark:border-gray-700">
+			<input type="checkbox"
+			       className="w-7 h-7 p-3 bg-white border border-gray-600 appearance-none rounded-full checked:bg-gray-700 checked:dark:bg-fuchsia-950 dark:bg-gray-700 dark:border-gray-600"
+			       defaultChecked={isChecked}
+			       onChange={() => handleToggleCheckbox()}/>
+			<div className="truncate">
+				<span className={`block flex-1 truncate border-0 py-1.5 pl-4 text-gray-700 dark:bg-transparent ${isChecked ? 'line-through dark:text-gray-500' : 'dark:text-gray-300'}`}
+				>{name}</span>
 			</div>
-			<a className="cursor-pointer" onClick={() => handleDeleteTodo()}>
+			<a className="cursor-pointer pr-2 text-gray-400" onClick={() => handleDeleteTodo()}>
 				<TrashIcon/>
 			</a>
 		</li>
