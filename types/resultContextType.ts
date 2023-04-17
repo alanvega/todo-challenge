@@ -1,5 +1,5 @@
 import {Todo} from '@/interfaces/todo';
-import {TodoListType} from '@/interfaces/todoListType';
+import {TodoListType} from '@/types/todoListType';
 
 export interface ResultContextType {
 	todoList: Todo[];
