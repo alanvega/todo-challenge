@@ -35,7 +35,7 @@ export const NewTodo = () => {
 			       checked={addReq.isDone}
 			       onChange={handleChangeActive}/>
 			<input type="text"
-			       className="block flex-1 border-0 py-1.5 pl-4 text-gray-700 placeholder:text-gray-500 dark:bg-transparent dark:text-gray-300"
+			       className="block flex-1 border-0 py-1.5 ml-3 mr-2 p-1 text-gray-700 placeholder:text-gray-500 dark:bg-transparent dark:text-gray-300"
 			       placeholder="Create a new todo"
 			       value={addReq.name}
 			       onChange={handleChangeName}/>
