@@ -1,5 +1,5 @@
 import {TodoContainer} from '@/components/todoContainer';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {ThemeType} from '@/types/ThemeType';
 import {SunIcon} from '@/icons/sunIcon';
 import {MoonIcon} from '@/icons/moonIcon';
@@ -7,12 +7,25 @@ import {MoonIcon} from '@/icons/moonIcon';
 export default function Home() {
 	const [theme, setTheme] = useState<ThemeType>('light');
 
+	useEffect(() => {
+		const themeKey = localStorage.getItem('themeKey');
+		if (themeKey) {
+			setTheme(themeKey as ThemeType);
+		}
+	}, [])
+
+	const toggleTheme = () => {
+		const value = isThemeLight? 'dark' : 'light';
+		localStorage.setItem('themeKey', value);
+		setTheme(value);
+	}
+
 	const isThemeLight = theme === 'light';
 
 	return (
 		<main className={theme}>
 			<div className="absolute right-0 p-2 sm:p-8 text-gray-400 dark:text-gray-200">
-				<a className="cursor-pointer" onClick={() => setTheme(isThemeLight? 'dark' : 'light')}>
+				<a className="cursor-pointer" onClick={() => toggleTheme()}>
 					{ isThemeLight ?
 						<MoonIcon/>
 						:
