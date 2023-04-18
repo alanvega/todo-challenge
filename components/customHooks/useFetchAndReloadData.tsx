@@ -1,10 +1,8 @@
-import React, {useCallback, useContext, useState} from 'react';
+import React, {useCallback, useContext} from 'react';
 import TodoListContext from '@/components/contexts/todoListContext';
 
-export function useFetchAndReloadData<T>() {
+export function useFetchAndReloadData() {
 	const {reloadTodoList} = useContext(TodoListContext)
-
-	const [data, setData] = useState<T>();
 
 	const fetchAndReloadData = useCallback(async (path: string, methodType: string, body?: string) => {
 		try {
@@ -12,13 +10,12 @@ export function useFetchAndReloadData<T>() {
 				method: methodType,
 				body: body
 			});
-			const data = await response.json();
-			setData(data);
+			await response;
 			reloadTodoList();
 		} catch (error) {
 			console.error(error);
 		}
 	}, []);
 
-	return {fetchAndReloadData, data}
+	return {fetchAndReloadData}
 }

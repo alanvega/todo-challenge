@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-input:checked + div > div {
+input#custom-check:checked + div > div {
 	@apply flex;
 }

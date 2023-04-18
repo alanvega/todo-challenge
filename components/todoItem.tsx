@@ -16,12 +16,6 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 
 	const [isChecked, setIsChecked] = useState(isDone);
 
-	const handleDeleteTodo = async () => {
-		// Make a delete to delete todo api
-		await fetchAndReloadData(TODO_DELETE_PATH + id, 'DELETE');
-		console.log('Delete todo', id);
-	};
-
 	const handleToggleCheckbox = async () => {
 		const markDoneReq: MarkDoneReq = {id, isDone: !isChecked};
 
@@ -34,8 +28,14 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 		console.log('Marked todo as done');
 	};
 
+	const handleDeleteTodo = async () => {
+		// Make a delete to delete todo api
+		await fetchAndReloadData(TODO_DELETE_PATH + id, 'DELETE');
+		console.log('Deleted todo', id);
+	};
+
 	return (
-		<li className="flex p-2 pl-3 items-center justify-between border border-gray-200 rounded dark:border-gray-700 dark:bg-slate-800">
+		<li className="flex p-2 pl-3 items-center justify-between border border-gray-200 rounded dark:border-gray-700 dark:bg-slate-800" draggable>
 			<div className="flex-none">
 				<CustomCheck isChecked={isChecked} onChange={handleToggleCheckbox}/>
 			</div>

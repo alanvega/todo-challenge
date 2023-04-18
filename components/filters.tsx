@@ -23,14 +23,14 @@ export const Filters = () => {
 		return todoList.filter((todo: Todo) => !todo.isDone).length;
 	};
 
-	function getReloadTodoList(type: TodoListType = 'ALL') {
+	function filteredTodoList(type: TodoListType = 'ALL') {
 		setFilter(type);
 		reloadTodoList(type);
 	}
 
-	const typeFilter = (type: TodoListType) =>
-		<a className={`cursor-pointer p-1 capitalize ${filter === type ? 'font-bold dark:font-normal dark:text-gray-200' : ''}`}
-		   onClick={() => getReloadTodoList(type)}>{type.toLowerCase()}
+	const typeFilter = (type: TodoListType, index: number) =>
+		<a key={`${type}-${index}`} className={`cursor-pointer p-1 capitalize ${filter === type ? 'font-bold dark:font-normal dark:text-gray-200' : ''}`}
+		   onClick={() => filteredTodoList(type)}>{type.toLowerCase()}
 		</a>;
 
 	return (
@@ -40,9 +40,7 @@ export const Filters = () => {
 				<span>remaining</span>
 			</div>
 			<div className="flex w-full justify-center space-x-1">
-				{typeFilter('ALL')}
-				{typeFilter('ACTIVE')}
-				{typeFilter('COMPLETED')}
+				{ ['ALL', 'ACTIVE', 'COMPLETED'].map((type, index) => typeFilter(type as TodoListType, index))}
 			</div>
 			<div className="text-center sm:w-2/5">
 				<a className="cursor-pointer" onClick={() => clearCompleted()}>Clear Completed</a>

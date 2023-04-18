@@ -9,6 +9,7 @@ interface CustomCheckInterface {
 export const CustomCheck = ({isChecked, onChange}: CustomCheckInterface) => (
 	<div className="h-7 w-7">
 		<input type="checkbox"
+		       id="custom-check"
 		       className="opacity-0 absolute w-7 h-7 cursor-pointer"
 		       checked={isChecked}
 		       onChange={onChange}/>

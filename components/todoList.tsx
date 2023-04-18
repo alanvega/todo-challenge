@@ -1,5 +1,5 @@
-import {TodoItem} from '@/components/todoItem';
 import {useContext} from 'react';
+import {TodoItem} from '@/components/todoItem';
 import TodoListContext from '@/components/contexts/todoListContext';
 
 export const TodoList = () => {
