@@ -3,8 +3,7 @@ import {TodoList} from '@/components/todoList';
 import {Filters} from '@/components/filters';
 import {TodoListProvider} from '@/components/contexts/todoListContext';
 
-export const TodoContainer = () =>
-	(
+export const TodoContainer = () => (
 		<TodoListProvider>
 			<div className="space-y-8">
 				<NewTodo/>
