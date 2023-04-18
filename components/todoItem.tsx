@@ -35,18 +35,18 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 	};
 
 	return (
-		<li className="flex p-2 pl-3 items-center justify-between border border-gray-200 rounded dark:border-gray-700 dark:bg-slate-800" draggable>
+		<label className="flex p-2 pl-3 cursor-pointer items-center justify-between border border-gray-200 rounded dark:border-gray-700 bg-white dark:bg-slate-800" draggable>
 			<div className="flex-none">
 				<CustomCheck isChecked={isChecked} onChange={handleToggleCheckbox}/>
 			</div>
 			<div className="truncate flex-auto">
-				<span className={`block flex-1 truncate border-0 py-1.5 pl-4 text-gray-700 dark:bg-transparent ${isChecked ? 'line-through dark:text-gray-500' : 'dark:text-gray-300'}`}>
-					{name}
-				</span>
+			<span className={`block flex-1 truncate border-0 py-1.5 pl-4 text-gray-700 hover:line-through dark:bg-transparent ${isChecked ? 'line-through dark:text-gray-500' : 'dark:text-gray-300'}`}>
+				{name}
+			</span>
 			</div>
 			<a className="cursor-pointer pr-2 text-gray-400" onClick={() => handleDeleteTodo()}>
 				<TrashIcon/>
 			</a>
-		</li>
+		</label>
 	);
 };

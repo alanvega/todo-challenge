@@ -29,7 +29,7 @@ export const NewTodo = () => {
 	};
 
 	return (
-		<form className="flex items-center p-2 pl-4 border border-gray-200 rounded dark:border-gray-700 dark:bg-slate-800"
+		<form className="flex items-center p-2 pl-4 border border-gray-200 rounded dark:border-gray-700 bg-white dark:bg-slate-800"
 		      onSubmit={handleNewTodo}>
 			<CustomCheck isChecked={addReq.isDone} onChange={handleChangeActive}/>
 			<input type="text"
