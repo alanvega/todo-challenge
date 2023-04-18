@@ -34,7 +34,7 @@ export const Filters = () => {
 		</a>;
 
 	return (
-		<div className="flex p-2 sm:p-3 items-center justify-between border border-gray-200 rounded dark:border-gray-700 text-xs text-gray-600 dark:text-gray-500">
+		<div className="flex p-2 sm:p-3 items-center justify-between border border-gray-200 rounded dark:border-gray-700 text-xs text-gray-600 dark:text-gray-500 dark:bg-slate-800">
 			<div className="flex flex-col sm:flex-row items-center w-1/4">
 				<span className="sm:pr-1">{countRemaining()}</span>
 				<span>remaining</span>

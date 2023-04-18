@@ -2,6 +2,7 @@ import {TODO_ADD_PATH} from '@/utils/url-paths';
 import {ChangeEvent, FormEvent, useState} from 'react';
 import {AddReq} from '@/interfaces/addReq';
 import {useFetchAndReloadData} from '@/components/customHooks/useFetchAndReloadData';
+import {CustomCheck} from '@/components/customCheck';
 
 export const NewTodo = () => {
 	const defaultAddReq: AddReq = {name: '', isDone: false};
@@ -28,12 +29,9 @@ export const NewTodo = () => {
 	};
 
 	return (
-		<form className="flex items-center p-2 pl-4 border border-gray-200 rounded dark:border-gray-700 dark:bg-gray-800"
+		<form className="flex items-center p-2 pl-4 border border-gray-200 rounded dark:border-gray-700 dark:bg-slate-800"
 		      onSubmit={handleNewTodo}>
-			<input type="checkbox"
-			       className="w-7 h-7 bg-white border border-gray-600 appearance-none rounded-full checked:bg-gray-700 checked:dark:bg-fuchsia-950 dark:bg-gray-700 dark:border-gray-600"
-			       checked={addReq.isDone}
-			       onChange={handleChangeActive}/>
+			<CustomCheck isChecked={addReq.isDone} onChange={handleChangeActive}/>
 			<input type="text"
 			       className="block flex-1 border-0 py-1.5 ml-3 mr-2 p-1 text-gray-700 placeholder:text-gray-500 dark:bg-transparent dark:text-gray-300"
 			       placeholder="Create a new todo"
