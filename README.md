@@ -21,6 +21,22 @@ If I had more time I would improve this app with:
 - Edit a Todo
 - Some tests
 
+
+## Notes
+
+## List updates 
+I am doing an update to the server list every time the user makes a change to the list, but I think it's not the best way to do it.
+
+Maybe it's a better user experience to use the cache that provides the `useSWR` hook, but I wanted to have the same list on the server and the client, so I didn't use it.
+
+### Drag and drop
+I made the drag and drop to post the new order and the id only, and then the server re-order the list. 
+
+The easiest way to do this it's to send all the list with the correct order from the client side, but if the list is too big, it could be a problem.
+
+I don't know if this it's the best way either because the server has to query the mongo lots of times, but I prefer to do all the work on the server.
+
+
 ## Run app in development mode
 
 ### Install dependencies
