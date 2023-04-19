@@ -8,5 +8,12 @@
       <jdbc-url>mongodb://localhost:27017/todos</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="todos@cluster0.mube2gl.mongodb.net" uuid="3b5e8d1a-3980-4e55-bb94-2bfdf6f2a3fc">
+      <driver-ref>mongo</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb+srv://cluster0.mube2gl.mongodb.net/todos?retryWrites=true&amp;w=majority</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
