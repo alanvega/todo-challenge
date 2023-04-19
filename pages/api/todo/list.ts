@@ -13,7 +13,7 @@ export default async function handler(
 	req: ListReq,
 	res: NextApiResponse<Todo[]>
 ) {
-	const queryType = req.query.type;
+	const queryType = req.query.type || 'ALL'
 	console.log(`${TODO_LIST_PATH} request received, with query type: `, queryType);
 
 	const dbCollection = await mongodbCollection();

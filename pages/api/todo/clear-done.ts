@@ -1,6 +1,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {TODO_CLEAR_DONE_PATH} from '@/utils/url-paths';
 import {mongodbCollection} from '@/lib/mongo';
+import {reorderTodoList} from '@/pages/api/todo/utils/_reorder-todo-list';
 
 export default async function handler(
 	req: NextApiRequest,
@@ -14,10 +15,12 @@ export default async function handler(
 		const dbCollection = await mongodbCollection();
 		await dbCollection.deleteMany({isDone: true});
 
+		await reorderTodoList();
+
 		console.log('Deleted all done items');
 		res.status(200).json({});
 	} else {
 		// handle other HTTP methods
-		res.status(400).json({error: 'Only POST requests allowed'});
+		res.status(400).json({error: 'Only DELETE requests allowed'});
 	}
 }

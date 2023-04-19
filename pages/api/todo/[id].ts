@@ -2,6 +2,7 @@ import type {NextApiRequest, NextApiResponse} from 'next'
 import {TODO_DELETE_PATH} from '@/utils/url-paths';
 import {ObjectId} from 'bson';
 import {mongodbCollection} from '@/lib/mongo';
+import {reorderTodoList} from '@/pages/api/todo/utils/_reorder-todo-list';
 
 export default async function handler(
 	req: NextApiRequest,
@@ -15,7 +16,7 @@ export default async function handler(
 		const dbCollection = await mongodbCollection();
 		await dbCollection.findOneAndDelete({_id: new ObjectId(queryId)});
 
-		// TODO: reorder list
+		await reorderTodoList();
 
 		console.log("Deleted todo item with id: {}", queryId);
 		res.status(200).json({});

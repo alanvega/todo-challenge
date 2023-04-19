@@ -1,6 +1,6 @@
+import {useState, MouseEvent} from 'react';
 import {TrashIcon} from '@/icons/trash';
 import {TODO_DELETE_PATH, TODO_MARK_DONE_PATH} from '@/utils/url-paths';
-import {useState} from 'react';
 import {MarkDoneReq} from '@/interfaces/markDoneReq';
 import {useFetchAndReloadData} from '@/components/customHooks/useFetchAndReloadData';
 import {CustomCheck} from '@/components/customCheck';
@@ -28,14 +28,15 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 		console.log('Marked todo as done');
 	};
 
-	const handleDeleteTodo = async () => {
+	const handleDeleteTodo = async (event: MouseEvent<HTMLAnchorElement>) => {
+		event.preventDefault();
 		// Make a delete to delete todo api
 		await fetchAndReloadData(TODO_DELETE_PATH + id, 'DELETE');
 		console.log('Deleted todo', id);
 	};
 
 	return (
-		<label className="flex p-2 pl-3 cursor-pointer items-center justify-between border border-gray-200 rounded dark:border-gray-700 bg-white dark:bg-slate-800" draggable>
+		<label className="flex p-2 pl-3 cursor-pointer items-center justify-between border border-gray-200 rounded dark:border-gray-700 bg-white dark:bg-slate-800">
 			<div className="flex-none">
 				<CustomCheck isChecked={isChecked} onChange={handleToggleCheckbox}/>
 			</div>
@@ -44,7 +45,7 @@ export const TodoItem = ({id, isDone, name}: TodoItemInterface) => {
 				{name}
 			</span>
 			</div>
-			<a className="cursor-pointer pr-2 text-gray-400" onClick={() => handleDeleteTodo()}>
+			<a className="cursor-pointer pr-2 text-gray-400" onClick={(event) => handleDeleteTodo(event)}>
 				<TrashIcon/>
 			</a>
 		</label>
